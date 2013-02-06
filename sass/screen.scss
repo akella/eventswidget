@@ -1,0 +1,80 @@
+@import "snippets";
+//irrelevant styles, just for demonstration
+body{
+	margin: 0;
+	padding: 0;
+	background: #363636;}
+
+
+
+//widget styles
+.eventswidget{
+	color: #ccc;
+	font:normal 11px/1 "Lucida sans",arial,sans-serif;
+	position: absolute;
+	top: 0;//needs to be changed on actual site
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background: #252525;
+	box-shadow:0 10px 10px -10px rgba(#000,.7),inset 0 10px 10px -10px rgba(#000,0.5);
+	.eventswidget__more{
+		a{
+			color: #ccc;
+			display: block;
+			height: 24px;
+			line-height: 24px;
+			text-shadow: 0 -1px 0 rgba(#000,.4);
+			padding-left: 8px;
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+	.eventswidget__track{
+		border-bottom: 1px solid #3d3d3d;
+		box-shadow:0 1px 0 #1e1e1e;
+		position: relative;
+		height: 20px;
+		cursor: pointer;
+		.eventswidget__tracktitle{
+			position: absolute;
+			left: 5px;
+			top: 0;
+			line-height: 1;
+			z-index: 3;
+			background: rgba(#000,0.4);
+			padding: 3px;
+			border-radius: 5px;
+			@include transition(all,.1s,ease-in-out);
+			-webkit-transform: translateZ(0);
+		}
+		&:hover{
+			z-index: 10;
+			.eventswidget__tracktitle{
+				top: -12px;
+				color: #fff;
+				background: rgba(#000,0.7);
+				z-index: 100;
+				@include transition(all,.1s,ease-in-out);
+			}
+		}
+		&:hover:first-child{
+			.eventswidget__tracktitle{
+				top: 0;
+			}
+		}
+		//canvas sizing
+		.eventswidget__canvas{
+			position: absolute;
+			z-index: 2;
+			background: #900;
+			top: 3px;
+			right: 6px;
+			bottom: 3px;
+			left: 3px;
+			overflow: hidden;
+		}
+	}
+}
+
